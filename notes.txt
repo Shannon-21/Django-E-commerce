@@ -1,0 +1,4 @@
+- models ara like the database tables
+- with urls we configure what page seeing with a given path and arguments
+- views allow us defining the arguments to send to a html template, rendering the requested page
+- a request is rendered as an python/html templace where we specify how to display the information passed throught
