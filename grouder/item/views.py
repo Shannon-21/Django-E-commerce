@@ -17,7 +17,7 @@ def items(request):
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
-    return render(request, 'item/items.html', {
+    return render(request, 'item/item_items.html', {
         'items': items,
         'query': query,
         'categories': categories,
@@ -28,7 +28,7 @@ def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[0:3]
     
-    return render(request, 'item/detail.html', {
+    return render(request, 'item/item_detail.html', {
         'item': item,
         'related_items': related_items
     })
@@ -47,7 +47,7 @@ def new(request):
     else:
         form = NewItemForm()
 
-    return render(request, 'item/form.html', {
+    return render(request, 'item/item_form.html', {
         'form': form,
         'title': 'New item',
     })
@@ -65,7 +65,7 @@ def edit(request, pk):
     else:
         form = EditItemForm(instance=item)
 
-    return render(request, 'item/form.html', {
+    return render(request, 'item/item_form.html', {
         'form': form,
         'title': 'Edit item',
     })

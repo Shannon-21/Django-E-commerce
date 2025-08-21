@@ -1,0 +1,35 @@
+{% extends 'core/core_base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <div class="mt-6 px-4 md:px-6 py-8 bg-gray-100 rounded-xl">
+    <h2 class="mb-8 text-xl md:text-2xl text-center">Newest items</h2>
+
+    <!-- 1 col on phones, 2 on small screens, 3 on large -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for item in items %}
+        <a href="{% url 'item:detail' item.id %}" class="block bg-white rounded-xl overflow-hidden hover:shadow">
+          <img src="{{ item.image.url }}" class="w-full aspect-[4/3] object-cover" alt="{{ item.name }}">
+          <div class="p-4">
+            <h3 class="text-lg md:text-xl font-semibold">{{ item.name }}</h3>
+            <p class="text-gray-500">Price: {{ item.price }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="mt-6 px-4 md:px-6 py-8 bg-gray-100 rounded-xl">
+    <h2 class="mb-8 text-xl md:text-2xl text-center">Categories</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for category in categories %}
+        <a href="#" class="block bg-white rounded-xl p-6 hover:shadow">
+          <h3 class="text-lg md:text-xl font-semibold">{{ category.name }}</h3>
+          <p class="text-gray-500">{{ category.items.count }} items</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
