@@ -39,6 +39,7 @@
           {% if request.user.is_authenticated %}
             <a href="{% url 'conversation:inbox' %}" class="px-4 py-2 text-base font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Inbox</a>
             <a href="{% url 'dashboard:index' %}" class="px-4 py-2 text-base font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Dashboard</a>
+            <a href="{% url 'core:logout' %}" class="px-4 py-2 text-base font-semibold bg-red-500 text-white rounded-xl hover:bg-gray-700">Log out</a>
           {% else %}
             <!-- Fix typo: "Sing up" -> "Sign up" -->
             <a href="{% url 'core:signup' %}" class="px-4 py-2 text-base font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Sign up</a>
@@ -56,6 +57,7 @@
         {% if request.user.is_authenticated %}
           <a href="{% url 'conversation:inbox' %}" class="block w-full px-4 py-3 rounded-lg bg-teal-500 text-white text-center hover:bg-teal-700">Inbox</a>
           <a href="{% url 'dashboard:index' %}" class="block w-full px-4 py-3 rounded-lg bg-gray-500 text-white text-center hover:bg-gray-700">Dashboard</a>
+          <a href="{% url 'core:logout' %}" class="block w-full px-4 py-3 rounded-lg bg-red-500 text-white text-center hover:bg-gray-700">Log out</a>
         {% else %}
           <a href="{% url 'core:signup' %}" class="block w-full px-4 py-3 rounded-lg bg-teal-500 text-white text-center hover:bg-teal-700">Sign up</a>
           <a href="{% url 'core:login' %}" class="block w-full px-4 py-3 rounded-lg bg-gray-500 text-white text-center hover:bg-gray-700">Log in</a>

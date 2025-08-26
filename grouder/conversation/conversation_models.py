@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from item.models import Item
+from item.item_models import Item
 
 class Conversation(models.Model):
     item = models.ForeignKey(Item, related_name='conversations', on_delete=models.CASCADE)

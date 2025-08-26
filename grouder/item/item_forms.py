@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Item
+from .item_models import Item
 
 INPUT_CLASSES = 'w-full py-2 px-6 rounded-xl border'
 

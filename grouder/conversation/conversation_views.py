@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
-from item.models import Item
+from item.item_models import Item
 
-from .forms import ConversationMessageForm
-from .models import Conversation
+from .conversation_forms import ConversationMessageForm
+from .conversation_models import Conversation
 
 @login_required
 def new_conversation(request, item_pk):

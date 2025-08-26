@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout as auth_logout
 
-from item.models import Category, Item
+from item.item_models import Category, Item
 
-from .forms import SingupForm
+from .core_forms import SingupForm
 
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]
@@ -30,4 +31,8 @@ def signup(request):
     return render(request, 'core/core_signup.html', {
         'form': form
     })
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
     

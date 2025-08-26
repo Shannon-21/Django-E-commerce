@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .forms import EditItemForm, NewItemForm
-from .models import Item, Category
+from .item_forms import EditItemForm, NewItemForm
+from .item_models import Item, Category
 
 def items(request):
     query = request.GET.get('query', '')
